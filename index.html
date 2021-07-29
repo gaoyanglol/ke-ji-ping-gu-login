@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>科技评估信息管理系统</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="title">
+    <h1>科技评估信息管理系统</h1>
+  </div>
+  <div class="login">
+    <div class="login-span" style="background-image: url(./image/admin_span.png)"></div>
+    <div class="login-panel">
+      <div class="switch">
+        <ul class="clearfix">
+          <li class="active"><label for="gly"><input type="radio" id="gly" checked name="identity" value="gly">管理员</label></li>
+          <li><label for="zj"><input type="radio" id="zj" name="identity" value="zj">专家</label></li>
+          <li><label for="dcry"><input type="radio" id="dcry" name="identity" value="dcry">调查人员</label></li>
+        </ul>
+        <!-- <span class="underline" style="width: 58px;left:47px;"></span> -->
+      </div>
+      <div class="admin-panel">
+        <form action="">
+          <div class="inputs" style="background: url(./image/user_icon.png) no-repeat;">
+            <input type="text" placeholder="请输入账号">
+          </div>
+          <div class="inputs" style="background: url(./image/psw_icon.png) no-repeat;">
+            <input type="password" placeholder="请输入密码">
+          </div>
+          <div class="clearfix">
+            <div class="inputs" style="background: url(./image/code_icon.png) no-repeat; width: 171px; float: left;">
+              <input type="text" placeholder="请输入验证码">
+            </div>
+            <div class="code"></div>
+          </div>
+          
+          <div style="font-size: 14px; color:#fff; margin: 10px 0 35px;">
+            <input type="checkbox" id="rem" style="vertical-align: middle;">
+            <label for="rem">记住密码</label>
+            <a href="#" style="float: right;">忘记密码</a>
+          </div>
+          <button type="submit">登录</button>
+        </form>
+      </div>
+      <div class="expert-panel" style="display: none;"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>合作单位：江苏维邦软件有限公司</p>
+  </div>
+
+  <script>
+    var ipt = document.getElementsByClassName("inputs")
+    
+    for (var i = 0; i < ipt.length; i++) {
+      ipt[i].children[0].onfocus = focusOpacity
+      ipt[i].children[0].onblur = blurOpacity
+    }
+    function focusOpacity(e) {
+      e.currentTarget.parentNode.style.opacity = 1
+    }
+    function blurOpacity(e) {
+      e.currentTarget.parentNode.style.opacity = .4
+    }
+
+    var tab = document.querySelectorAll(".switch > ul > li > label")
+    var banner = document.querySelector(".login-span")
+
+    for (var i = 0; i < tab.length; i++) {
+      tab[i].onclick = makeActive
+    }
+    function makeActive(e) {
+      e.currentTarget.parentNode.classList.add("active")
+      for(var i = 0 ; i < tab.length; i++) {
+        if (tab[i] !== e.currentTarget) {
+          tab[i].parentNode.classList.remove("active")
+        }
+      }
+      var index = Array.prototype.indexOf.call(tab, e.currentTarget)
+      
+      if (index === 0) {
+        banner.style.cssText = "background-image: url(./image/admin_span.png)"
+      } else if (index === 1) {
+        banner.style.cssText = "background-image: url(./image/admin_span2.png)"
+      } else {
+        banner.style.cssText = "background-image: url(./image/admin_span3.png)"
+      }
+    }
+  </script>
+</body>
+</html>

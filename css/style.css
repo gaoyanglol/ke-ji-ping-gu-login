@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+  background: url(../image/bg.png) no-repeat center / cover;
+  perspective: 1000px;
+  animation: 1.5s fade;
+}
+@keyframes fade {
+  0% {background-size: 110%;}
+  100% {background-size: 100%;}
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.title {
+  position: absolute;
+  width: 100%;
+  top: 8%;
+  animation: fadein 1.5s;
+}
+@keyframes fadein {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.title h1 {
+  font-size: 0;
+  height: 64px;
+  background: url(../image/title.png) no-repeat center;
+}
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -490px;
+  margin-top: -243px;
+  width: 868px;
+  height: 374px;
+  padding: 56px;
+  background: url(../image/login_bg.png) no-repeat center;
+}
+.login > div {
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.login-span {
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all .3s ease;
+}
+.login-span::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255, 0),rgba(255,255,255,.4),rgba(255,255,255, 0));
+}
+.login-panel {
+  box-sizing: border-box;
+  padding: 0 30px 0 100px;
+}
+.switch {
+  position: relative;
+  height: 10%;
+}
+.switch ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.switch ul > li {
+  width: 33.33%;
+  float: left;
+  color: #fff;
+  text-align: center;
+  height: 100%;  
+  transition: font-size .3s ease;
+}
+.switch ul > li.active {
+  font-size: 20px;
+  color: #00b2e5;
+  font-weight: bold;
+}
+.switch ul > li > label {
+  display: inline-block;
+  height: 100%;
+  line-height: 37.39px;
+}
+.admin-panel, .expert-panel {
+  padding-top: 35px;
+  height: 90%;
+  box-sizing: border-box;
+}
+.underline {
+  position: absolute;
+  height: 2px;
+  background: #00b2e5;
+  transition: all .3s ease;
+}
+.admin-panel button, .expert-panel button {
+  width: 100%;
+  height: 38px; 
+  background:#00b2e5;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.inputs {
+  outline: none;
+  height: 32px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding-left: 45px;
+  border-bottom: 1px solid #fff;
+  opacity: .4;
+  transition: all .3s ease;
+}
+.inputs input {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #fff;
+}
+.inputs input::placeholder {
+  color: #fff;
+}
+.inputs input::-moz-placeholder {
+  color: #fff;
+}
+.inputs input::-ms-input-placeholder {
+  color: #fff !important;
+}
+.code {
+  height: 32px;
+  width: 95px;
+  background: grey;
+  float: right;
+}
+.login {
+  animation: 1.5s start;
+}
+@keyframes start {
+  0% {transform: rotateX(60deg) scale(.5); opacity: .1};
+  100% {transform: rotateX(0) scale(1); opacity: 1;}
+}
